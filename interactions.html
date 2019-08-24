@@ -1,0 +1,59 @@
+<html>
+	<head>
+		<title>Interactions</title>
+
+		<!--Scripts-->
+	   	<script src="scripts/d3.v4.js"></script>
+ 	</head>
+	<body>
+		<script>
+			var width = 500; // width of the svg
+			var height = 500; // height of the svg
+
+			var svg = d3.select("body").append('svg')
+				.attr("width", width)
+			var rect = svg.append("rect")
+				.attr("x", 50)
+				.attr('y', 50)
+				.attr("width", 250)
+				.attr("height", 100)
+				.attr('fill', "grey")
+				.on("mouseover", function(){ // hover events
+					console.log("mouseover")
+					rect.attr('fill', 'black');
+						rect.transition()
+					.duration(1000)
+					.attr("width", 450);
+				})
+				.on("mouseout", function(){
+					console.log("mouseout");
+					rect.attr('fill', 'grey');
+					rect.transition()
+					.duration(1000)
+					.attr("width", 250);
+				})
+				.on("mousedown", function(){ // click 
+					console.log("mousedown");
+					
+
+				})
+				.on("mouseup", function(){
+					console.log("mouseup");
+					rect.attr('fill', 'black');
+					
+				})
+				.on("click", function(){
+					console.log("click");
+				
+
+				})
+
+			var circle = svg.append("circle")
+			.attr("cx", 80)
+			.attr("cy", 200)
+			.attr("r", 30)
+			.attr("fill", "crimson");
+
+		</script>
+	</body>
+</html>
